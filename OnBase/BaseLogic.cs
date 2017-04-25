@@ -1,6 +1,7 @@
 ﻿using OnBase.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace OnBase
 {
@@ -9,7 +10,7 @@ namespace OnBase
     /// </summary>
     /// <typeparam name="T">Tipo da ENTIDADE</typeparam>
     /// <typeparam name="TDAO">Tipo do ACESSO A DADOS (T seguido do sufixo DAO)</typeparam>
-    public class BaseLogic<T, TDAO> : IDisposable
+    public abstract class BaseLogic<T, TDAO> : IDisposable
         where T : class, IBase
         where TDAO : class, IDisposable, IBaseDataAccess<T>, new()
     {
@@ -20,11 +21,15 @@ namespace OnBase
             dao = new TDAO();
         }
 
-        protected virtual void Inserir(T entidade)
+        /// <summary>
+        /// Método responsável pela inserção.
+        /// </summary>
+        /// <param name="entity">Entidade</param>
+        protected virtual void Insert(T entity)
         {
             try
             {
-                dao.Inserir(entidade);
+                dao.Insert(entity);
             }
             catch (Exception)
             {
@@ -32,11 +37,15 @@ namespace OnBase
             }
         }
 
-        protected virtual void Editar(T entidade)
+        /// <summary>
+        /// Método responsável pela edição.
+        /// </summary>
+        /// <param name="entity">Entidade</param>
+        protected virtual void Edit(T entity)
         {
             try
             {
-                dao.Editar(entidade);
+                dao.Edit(entity);
             }
             catch (Exception)
             {
@@ -45,14 +54,18 @@ namespace OnBase
 
         }
 
-        public virtual void Salvar(T entidade)
+        /// <summary>
+        /// Método responsável por salvar.
+        /// </summary>
+        /// <param name="entity">Entidade</param>
+        public virtual void Save(T entity)
         {
             try
             {
-                if (entidade.Id == 0)
-                    Inserir(entidade);
+                if (entity.Id == 0)
+                    Insert(entity);
                 else
-                    Editar(entidade);
+                    Edit(entity);
             }
             catch (Exception)
             {
@@ -60,24 +73,16 @@ namespace OnBase
             }
         }
 
-        public virtual T Encontrar(int id)
+        /// <summary>
+        /// Método responsável por encontrar.
+        /// </summary>
+        /// <param name="id">Id da Entidade</param>
+        /// <returns>Entidade</returns>
+        public virtual T Get(int id)
         {
             try
             {
-                return dao.Encontrar(id);
-
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public virtual List<T> Listar()
-        {
-            try
-            {
-                return dao.Listar();
+                return dao.Get(id);
 
             }
             catch (Exception)
@@ -86,11 +91,68 @@ namespace OnBase
             }
         }
 
-        public virtual void Remover(int id)
+        /// <summary>
+        /// Método responsável por encontrar.
+        /// </summary>
+        /// <param name="filter">Filtro</param>
+        /// <returns>Entidade</returns>
+        public virtual T Get(Expression<Func<T, bool>> filter)
         {
             try
             {
-                dao.Remover(id);
+                return dao.Get(filter);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Método responsável por listar.
+        /// </summary>
+        /// <returns>Lista de entidades</returns>
+        public virtual List<T> List()
+        {
+            try
+            {
+                return dao.List();
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Método responsável por listar.
+        /// </summary>
+        /// <param name="filter">Filtro</param>
+        /// <returns>Lista de entidades</returns>
+        public virtual List<T> List(Expression<Func<T, bool>> filter)
+        {
+            try
+            {
+                return dao.List(filter);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Método responsável por remover.
+        /// </summary>
+        /// <param name="id">Id da Entidade</param>
+        public virtual void Remove(int id)
+        {
+            try
+            {
+                dao.Remove(id);
             }
             catch (Exception)
             {
