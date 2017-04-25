@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OnBase")]
-[assembly: AssemblyDescription("Framework base para CRUD utilizando Entity Framework")]
+[assembly: AssemblyTitle("Teste.UI")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Onsoft")]
-[assembly: AssemblyProduct("OnBase")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Teste.UI")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("af7566de-a4a0-49cd-a435-6bcc6ca9e163")]
+[assembly: Guid("96832df5-cbdd-4c45-9c98-e705dc5b74b6")]
 
 // Version information for an assembly consists of the following four values:
 //
