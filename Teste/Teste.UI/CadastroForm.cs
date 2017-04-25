@@ -34,7 +34,7 @@ namespace Teste.UI
             {
                 using (var logic = new ClienteLogic())
                 {
-                    logic.Salvar(cliente);
+                    logic.Save(cliente);
                     _listaForm.AtualizarGrid();
                     Hide();
                 }

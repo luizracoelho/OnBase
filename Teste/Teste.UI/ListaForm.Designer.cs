@@ -77,6 +77,7 @@
             this.dgvClientes.Size = new System.Drawing.Size(480, 294);
             this.dgvClientes.TabIndex = 1;
             this.dgvClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellDoubleClick);
+            this.dgvClientes.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dgvClientes_KeyUp);
             // 
             // Id
             // 

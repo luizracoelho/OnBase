@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>OnBase</id>
+        <version>1.0.4</version>
+        <authors>Luiz R. A. Coelho,Leonardo A. Coelho</authors>
+        <owners>Luiz R. A. Coelho</owners>
+        <projectUrl>https://github.com/luizracoelho/OnBase</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Framework base para CRUD utilizando Entity Framework</description>
+        <releaseNotes>Publicação inicial.</releaseNotes>
+        <copyright>Copyright 2017</copyright>
+        <tags>CRUD</tags>
+        <dependencies>
+            <dependency id="EntityFramework" version="6.1.3" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="..\OnBase\bin\Release\OnBase.dll" target="lib\OnBase.dll" />
+    </files>
+</package>
