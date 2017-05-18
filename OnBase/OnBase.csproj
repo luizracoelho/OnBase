@@ -52,6 +52,7 @@
     <Compile Include="BaseLogic.cs" />
     <Compile Include="Interfaces\IBase.cs" />
     <Compile Include="Interfaces\IBaseDataAccess.cs" />
+    <Compile Include="Interfaces\IBaseLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

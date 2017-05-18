@@ -10,7 +10,7 @@ namespace OnBase
     /// </summary>
     /// <typeparam name="T">Tipo da ENTIDADE</typeparam>
     /// <typeparam name="TDAO">Tipo do ACESSO A DADOS (T seguido do sufixo DAO)</typeparam>
-    public abstract class BaseLogic<T, TDAO> : IDisposable
+    public abstract class BaseLogic<T, TDAO> : IDisposable, IBaseLogic<T>
         where T : class, IBase
         where TDAO : class, IDisposable, IBaseDataAccess<T>, new()
     {
