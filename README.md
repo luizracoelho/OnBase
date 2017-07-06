@@ -8,7 +8,7 @@ Você também deverá referenciar a biblioteca em todas as classes que a utiliza
 using OnBase;
 ```
 ### Entidades
-Todas as entidades mapeadas pelo Entity Framework devem herdar de **Base**(O Base ja possui o Id, por isso não deve ser colocado nas entidades).
+Todas as entidades mapeadas pelo Entity Framework devem herdar de **Base**(O Base ja possui a propriedade Id, por isso não precisa ser colocado nas entidades).
 ```csharp
 public class Cliente : Base
 {
